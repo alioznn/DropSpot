@@ -18,6 +18,7 @@ export const AuthForm = ({ mode }: AuthFormProps) => {
   const [error, setError] = useState<string | null>(null);
 
   const isLogin = mode === "login";
+  const redirectPath = "/drops";
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,7 +26,7 @@ export const AuthForm = ({ mode }: AuthFormProps) => {
     try {
       const action = isLogin ? login : signup;
       await action({ email, password });
-      router.push("/");
+      router.push(redirectPath);
     } catch (err: unknown) {
       if (
         err &&
@@ -44,7 +45,7 @@ export const AuthForm = ({ mode }: AuthFormProps) => {
   };
 
   return (
-    <div className="w-full rounded-lg border border-slate-800 bg-slate-900/60 p-6 shadow-xl">
+    <div className="w-full rounded-2xl border border-slate-800/70 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 shadow-2xl shadow-slate-950/40">
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div className="space-y-2 text-left">
           <label htmlFor="email" className="text-sm font-medium text-slate-200">

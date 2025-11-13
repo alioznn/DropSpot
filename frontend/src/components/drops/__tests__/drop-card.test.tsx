@@ -57,7 +57,9 @@ type MockDropsContext = {
 const createDropsContext = (
   overrides?: Partial<MockDropsContext>,
 ): MockDropsContext => ({
-  joinWaitlist: jest.fn().mockResolvedValue({}),
+  joinWaitlist: jest
+    .fn()
+    .mockResolvedValue({ entry: { priority_score: 12.34 } }),
   leaveWaitlist: jest.fn().mockResolvedValue({}),
   claimDrop: jest.fn().mockResolvedValue({}),
   joinLoading: false,
@@ -74,7 +76,9 @@ describe("DropCard", () => {
   });
 
   it("triggers join waitlist action for authenticated user", async () => {
-    const joinWaitlistMock = jest.fn().mockResolvedValue({});
+    const joinWaitlistMock = jest
+      .fn()
+      .mockResolvedValue({ entry: { priority_score: 42 } });
     useAuth.mockReturnValue(
       createAuthContext({
         user: {
@@ -100,7 +104,9 @@ describe("DropCard", () => {
     );
 
     expect(joinWaitlistMock).toHaveBeenCalledWith(drop.id);
-    expect(await screen.findByText("İşlem başarıyla tamamlandı.")).toBeInTheDocument();
+    expect(
+      await screen.findByText(/Bekleme listesindesin!/i),
+    ).toBeInTheDocument();
   });
 
   it("shows login required error when user is not authenticated", async () => {
@@ -113,7 +119,9 @@ describe("DropCard", () => {
       screen.getByRole("button", { name: /bekleme listesine katıl/i }),
     );
 
-    expect(await screen.findByText("İşlem için giriş yapmalısın.")).toBeInTheDocument();
+    expect(
+      await screen.findByText(/giriş yapmalısın/i),
+    ).toBeInTheDocument();
   });
 });
 

@@ -49,7 +49,7 @@ describe("AuthForm", () => {
       email: "user@example.com",
       password: "password123",
     });
-    expect(pushMock).toHaveBeenCalledWith("/");
+    expect(pushMock).toHaveBeenCalledWith("/drops");
   });
 
   it("shows error detail when request fails", async () => {
