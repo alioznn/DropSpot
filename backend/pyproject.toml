@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "drop-spot-backend"
+version = "0.1.0"
+description = "DropSpot backend service built with FastAPI"
+authors = ["Ali <ozenali195@gmail.com>"]
+readme = "../README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.0"
+uvicorn = { extras = ["standard"], version = "^0.30.1" }
+sqlalchemy = { version = "^2.0.30", extras = ["asyncio"] }
+alembic = "^1.13.1"
+asyncpg = "^0.29.0"
+aiosqlite = "^0.20.0"
+psycopg = { version = "^3.1.18", extras = ["binary"] }
+pydantic-settings = "^2.2.1"
+python-jose = "^3.3.0"
+passlib = { version = "^1.7.4", extras = ["bcrypt"] }
+email-validator = "^2.1.0.post1"
+httpx = "^0.27.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.2"
+pytest-asyncio = "^0.23.7"
+pytest-cov = "^5.0.0"
+ruff = "^0.5.6"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
