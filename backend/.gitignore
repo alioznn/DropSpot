@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+drop_spot.db
+*.sqlite3
+
