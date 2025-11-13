@@ -14,7 +14,7 @@ import { setAccessToken } from "@/lib/api-client";
 import { loginRequest, signupRequest } from "@/lib/auth";
 import type { AuthCredentials, AuthResponse, AuthUser } from "@/types/auth";
 
-type AuthContextValue = {
+export type AuthContextValue = {
   user: AuthUser | null;
   token: string | null;
   initialized: boolean;
