@@ -1,5 +1,12 @@
 __pycache__/
-*.py[cod]
-drop_spot.db
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.env
+.env.*
+*.pyc
+*.pyo
+*.pyd
 *.sqlite3
+drop_spot.db
 
