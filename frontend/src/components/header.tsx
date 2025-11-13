@@ -22,7 +22,7 @@ export const Header = () => {
         </Link>
         <nav className="flex items-center gap-4 text-sm">
           <Link
-            href="/"
+            href="/drops"
             className="rounded-md px-3 py-2 text-slate-300 transition hover:bg-slate-800 hover:text-white"
           >
             Drop Listesi
